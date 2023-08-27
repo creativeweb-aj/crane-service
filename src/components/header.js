@@ -30,7 +30,7 @@ const Header = () => {
                             <div className="row align-items-center">
                                 <div className="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                                     <Link to='/' className="text-nowrap logo-img">
-                                        <img loading="lazy" src={siteInfo?.logo} alt={siteInfo?.site_name} />
+                                        <img loading="lazy" src={`${BaseUrl}`+`${siteInfo?.logo}`} alt={siteInfo?.site_name} />
                                     </Link>
                                 </div>
 
