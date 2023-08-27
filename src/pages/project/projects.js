@@ -64,8 +64,8 @@ const Projects = () => {
                                 {projects && projects.map((data, index) => (
                                     <div className="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;government&quot;,&quot;healthcare&quot;]">
                                         <div className="project-img-container">
-                                            <a className="gallery-popup" href={data?.image}>
-                                                <img src={data?.image} alt={data?.title} width={400} height={300} />
+                                            <a className="gallery-popup" href={`${BaseUrl}` + `${data?.image}`}>
+                                                <img src={`${BaseUrl}` + `${data?.image}`} alt={data?.title} width={400} height={300} />
                                                 <span className="gallery-icon"><i className="fa fa-plus"></i></span>
                                             </a>
                                             <div className="project-item-info">

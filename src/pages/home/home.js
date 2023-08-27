@@ -159,7 +159,7 @@ const Home = () => {
                                         <div className="col">
                                             <div className="row">
                                                 <div className="col-lg-3">
-                                                    <img width={40} src={data?.icon} alt={data?.name} />
+                                                    <img width={40} src={`${BaseUrl}` + `${data?.icon}`} alt={data?.name} />
                                                 </div>
                                                 <div className="col-lg-9">
                                                     <h5>{data?.name}</h5>
@@ -291,7 +291,7 @@ const Home = () => {
                                     {index <= 2 ? (
                                         <div className="ts-service-box d-flex">
                                             <div className="ts-service-box-img">
-                                                <img width={70} loading="lazy" src={data?.icon} alt={data?.name} />
+                                                <img width={70} loading="lazy" src={`${BaseUrl}` + `${data?.icon}`} alt={data?.name} />
                                             </div>
                                             <div className="ts-service-box-info">
                                                 <h3 className="service-box-title">{data?.name}</h3>
@@ -313,7 +313,7 @@ const Home = () => {
                                     {index >= 3 ? (
                                         <div className="ts-service-box d-flex">
                                             <div className="ts-service-box-img">
-                                                <img width={70} loading="lazy" src={data?.icon} alt={data?.name} />
+                                                <img width={70} loading="lazy" src={`${BaseUrl}` + `${data?.icon}`} alt={data?.name} />
                                             </div>
                                             <div className="ts-service-box-info">
                                                 <h3 className="service-box-title"><a href="#">{data?.name}</a></h3>
@@ -346,8 +346,8 @@ const Home = () => {
                                         {index <= 5 ? (
                                             <div className="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;government&quot;,&quot;healthcare&quot;]">
                                                 <div className="project-img-container">
-                                                    <a className="gallery-popup" href={data?.image} aria-label="project-img">
-                                                        <img src={data?.image} alt={data?.title} width={400} height={300} />
+                                                    <a className="gallery-popup" href={`${BaseUrl}` + `${data?.image}`} aria-label="project-img">
+                                                        <img src={`${BaseUrl}` + `${data?.image}`} alt={data?.title} width={400} height={300} />
                                                         <span className="gallery-icon"><i className="fa fa-plus"></i></span>
                                                     </a>
                                                     <div className="project-item-info">
@@ -389,7 +389,7 @@ const Home = () => {
                                                 {data?.comment}
                                             </span>
                                             <div className="quote-item-footer">
-                                                <img loading="lazy" className="testimonial-thumb" src={data?.client_image}
+                                                <img loading="lazy" className="testimonial-thumb" src={`${BaseUrl}` + `${data?.client_image}`}
                                                     alt={data?.client_name} />
                                                 <div className="quote-item-info">
                                                     <h3 className="quote-author">{data?.client_name}</h3>
