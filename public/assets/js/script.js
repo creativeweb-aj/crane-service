@@ -107,6 +107,11 @@ jQuery(function ($) {
 
 				var navbarHeight = $('.site-navigation').outerHeight();
 				$('.site-navigation .navbar-collapse').css('max-height', 'calc(100vh - ' + navbarHeight + 'px)');
+
+				$('.sidebar-link').on('click', function(){
+					$('#navbar-collapse').removeClass('show')
+					$('.navbar-toggler').attr('aria-expanded', 'false')
+				})
 			}
 		}
 		navbarDropdown();

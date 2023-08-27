@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar";
 import { Link } from "react-router-dom";
+import { API } from "../constant/api";
+import useRequest from "../hooks/useRequest";
+
+const BaseUrl = API.Base_Url;
 
 const Header = () => {
+    const [siteInfo, setSiteInfo] = useState(null);
+
+    const { request, response } = useRequest()
+
+    useEffect(() => {
+        request('GET', 'home/site-info')
+    }, [])
+
+    useEffect(() => {
+        if (response && response?.status === "SUCCESS") {
+            setSiteInfo(response?.data?.site_info)
+        }
+    }, [response])
+
     return (
         <>
             <header id="header" className="header-one">
@@ -11,8 +29,8 @@ const Header = () => {
                         <div className="logo-area">
                             <div className="row align-items-center">
                                 <div className="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-                                    <Link to='' className="text-nowrap logo-img">
-                                        <img loading="lazy" src="/assets/images/logo.png" alt="Constra" />
+                                    <Link to='/' className="text-nowrap logo-img">
+                                        <img loading="lazy" src={`${BaseUrl}`+`${siteInfo?.logo}`} alt={siteInfo?.site_name} />
                                     </Link>
                                 </div>
 
@@ -22,7 +40,7 @@ const Header = () => {
                                             <div className="info-box">
                                                 <div className="info-box-content">
                                                     <p className="info-box-title">Call Us</p>
-                                                    <p className="info-box-subtitle">(+9) 847-291-4353</p>
+                                                    <p className="info-box-subtitle">{siteInfo?.mobile}</p>
                                                 </div>
                                             </div>
                                         </li>
@@ -30,18 +48,18 @@ const Header = () => {
                                             <div className="info-box">
                                                 <div className="info-box-content">
                                                     <p className="info-box-title">Email Us</p>
-                                                    <p className="info-box-subtitle">office@Constra.com</p>
+                                                    <p className="info-box-subtitle">{siteInfo?.email}</p>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li className="last">
+                                        {/* <li className="last">
                                             <div className="info-box last">
                                                 <div className="info-box-content">
                                                     <p className="info-box-title">Global Certificate</p>
                                                     <p className="info-box-subtitle">ISO 9001:2017</p>
                                                 </div>
                                             </div>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </div>
                             </div>

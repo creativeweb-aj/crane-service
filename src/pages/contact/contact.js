@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {useExternalScript} from '../../hooks/useExternalScript';
+import useRequest from "../../hooks/useRequest";
 
 const Contact = () => {
     useExternalScript('/assets/js/script.js')
+    const [siteInfo, setSiteInfo] = useState(null);
 
+    const { request, response } = useRequest()
+
+    useEffect(() => {
+        request('GET', 'home/site-info')
+    }, [])
+
+    useEffect(() => {
+        if (response && response?.status === "SUCCESS") {
+            setSiteInfo(response?.data?.site_info)
+        }
+    }, [response])
+    
     return (
         <>
             <div id="banner-area" className="banner-area" style={{backgroundImage:'url(/assets/images/banner/banner1.jpg)'}}>
@@ -13,13 +27,13 @@ const Contact = () => {
                             <div className="col-lg-12">
                                 <div className="banner-heading">
                                     <h1 className="banner-title">Contact</h1>
-                                    <nav aria-label="breadcrumb">
+                                    {/* <nav aria-label="breadcrumb">
                                         <ol className="breadcrumb justify-content-center">
                                             <li className="breadcrumb-item"><a href="#">Home</a></li>
                                             <li className="breadcrumb-item"><a href="#">Company</a></li>
                                             <li className="breadcrumb-item active" aria-current="page">Contact Us</li>
                                         </ol>
-                                    </nav>
+                                    </nav> */}
                                 </div>
                             </div>
                         </div>
@@ -45,7 +59,7 @@ const Contact = () => {
                                 </span>
                                 <div className="ts-service-box-content">
                                     <h4>Visit Our Office</h4>
-                                    <p>9051 Constra Incorporate, USA</p>
+                                    <p>{siteInfo?.address}</p>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +71,7 @@ const Contact = () => {
                                 </span>
                                 <div className="ts-service-box-content">
                                     <h4>Email Us</h4>
-                                    <p>office@Constra.com</p>
+                                    <p>{siteInfo?.email}</p>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +83,7 @@ const Contact = () => {
                                 </span>
                                 <div className="ts-service-box-content">
                                     <h4>Call Us</h4>
-                                    <p>(+9) 847-291-4353</p>
+                                    <p>{siteInfo?.mobile}</p>
                                 </div>
                             </div>
                         </div>
