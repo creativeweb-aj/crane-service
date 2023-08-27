@@ -65,7 +65,7 @@ const Services = () => {
                                     </div>
                                     <div className="d-flex">
                                         <div className="ts-service-box-img">
-                                            <img loading="lazy" src={data?.image} alt="service-icon" width={50} height={50} />
+                                            <img loading="lazy" src={data?.icon} alt="service-icon" width={50} height={50} />
                                         </div>
                                         <div className="ts-service-info">
                                             <h3 className="service-box-title"><a href="service-single.html">{data?.name}</a></h3>
