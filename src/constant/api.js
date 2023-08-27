@@ -6,5 +6,5 @@ export const API = {
     Base_Url: 
       process.env.NODE_ENV === "development"
         ? "http://192.168.1.7:8010"
-        : "https://mahalaxmi-crane-service.onrender.com",
+        : "https://mahalaxmi-crane-service.s3.amazonaws.com",
 };
