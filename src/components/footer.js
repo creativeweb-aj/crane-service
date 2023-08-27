@@ -46,7 +46,7 @@ const Footer = () => {
                         <div className="row justify-content-between">
                             <div className="col-lg-4 col-md-6 footer-widget footer-about">
                                 <h3 className="widget-title">About Us</h3>
-                                <img loading="lazy" width={200} className="footer-logo" src={`${BaseUrl}` + `${siteInfo?.logo}`} alt="Constra" />
+                                <img loading="lazy" width={200} className="footer-logo" src={siteInfo?.logo} alt="Constra" />
                                 <p>
                                     Your reliable partner for lifting solutions. With a fleet of advanced cranes and a commitment to safety, we deliver efficient and trusted lifting services for diverse needs.
                                 </p>

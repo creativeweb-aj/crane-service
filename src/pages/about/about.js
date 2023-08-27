@@ -121,7 +121,7 @@ const About = () => {
                     <div className="row">
                         {persons && persons.map((data, index) => (
                             <div className="col-lg-6 text-center">
-                                <img className="rounded" loading="lazy" width={250} height={250} src={`${BaseUrl}` + `${data?.image}`} alt="team-img" />
+                                <img className="rounded" loading="lazy" width={250} height={250} src={data?.image} alt="team-img" />
                                 <p className="lead text-capitalize">{data?.name}</p>
                             </div>
                         ))}

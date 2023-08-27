@@ -61,11 +61,11 @@ const Services = () => {
                             <div key={index} className="col-lg-4 col-md-6 mb-5">
                                 <div className="ts-service-box">
                                     <div className="ts-service-image-wrapper">
-                                        <img loading="lazy" className="w-100" src={`${BaseUrl}`+`${data?.image}`} alt="service-image" width={300} height={250} />
+                                        <img loading="lazy" className="w-100" src={data?.image} alt="service-image" width={300} height={250} />
                                     </div>
                                     <div className="d-flex">
                                         <div className="ts-service-box-img">
-                                            <img loading="lazy" src={`${BaseUrl}`+`${data?.icon}`} alt="service-icon" width={50} height={50} />
+                                            <img loading="lazy" src={data?.image} alt="service-icon" width={50} height={50} />
                                         </div>
                                         <div className="ts-service-info">
                                             <h3 className="service-box-title"><a href="service-single.html">{data?.name}</a></h3>
