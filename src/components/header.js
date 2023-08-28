@@ -52,14 +52,6 @@ const Header = () => {
                                                 </div>
                                             </div>
                                         </li>
-                                        {/* <li className="last">
-                                            <div className="info-box last">
-                                                <div className="info-box-content">
-                                                    <p className="info-box-title">Global Certificate</p>
-                                                    <p className="info-box-subtitle">ISO 9001:2017</p>
-                                                </div>
-                                            </div>
-                                        </li> */}
                                     </ul>
                                 </div>
                             </div>
