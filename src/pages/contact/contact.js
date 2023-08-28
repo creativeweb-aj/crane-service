@@ -90,13 +90,6 @@ const Contact = () => {
 
                     </div>
 
-                    <div className="gap-60"></div>
-
-                    <div className="google-map">
-                        <div id="map" className="map" data-latitude="40.712776" data-longitude="-74.005974"
-                            data-marker="/assets/images/marker.png" data-marker-name="Constra"></div>
-                    </div>
-
                     <div className="gap-40"></div>
 
                     <div className="row">
