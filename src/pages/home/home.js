@@ -70,11 +70,11 @@ const Home = () => {
                         <div className="container h-100">
                             <div className="row align-items-center h-100">
                                 <div className="col-md-12 text-center">
-                                    <h2 className="slide-title" data-animation-in="slideInLeft">17 Years of excellence in</h2>
-                                    <h3 className="slide-sub-title" data-animation-in="slideInRight">Construction Industry</h3>
+                                    <h2 className="slide-title" data-animation-in="slideInLeft">10 Years of excellence in</h2>
+                                    <h3 className="slide-sub-title" data-animation-in="slideInRight">Crane Service</h3>
                                     <p data-animation-in="slideInLeft" data-duration-in="1.2">
-                                        <a href="services.html" className="slider btn btn-primary">Our Services</a>
-                                        <a href="contact.html" className="slider btn btn-primary border">Contact Now</a>
+                                        <NavLink to='services' className="slider btn btn-primary">Our Services</NavLink>
+                                        <NavLink to='contact' className="slider btn btn-primary border">Contact Now</NavLink>
                                     </p>
                                 </div>
                             </div>
@@ -87,11 +87,11 @@ const Home = () => {
                         <div className="container h-100">
                             <div className="row align-items-center h-100">
                                 <div className="col-md-12">
-                                    <h2 className="slide-title-box" data-animation-in="slideInDown">World className Service</h2>
+                                    <h2 className="slide-title-box" data-animation-in="slideInDown">Best Service</h2>
                                     <h3 className="slide-title" data-animation-in="fadeIn">When Service Matters</h3>
                                     <h3 className="slide-sub-title" data-animation-in="slideInLeft">Your Choice is Simple</h3>
                                     <p data-animation-in="slideInRight">
-                                        <a href="services.html" className="slider btn btn-primary border">Our Services</a>
+                                        <NavLink to='projects' className="slider btn btn-primary border">Our Projects</NavLink>
                                     </p>
                                 </div>
                             </div>
@@ -104,14 +104,13 @@ const Home = () => {
                         <div className="container h-100">
                             <div className="row align-items-center h-100">
                                 <div className="col-md-12">
-                                    <h2 className="slide-title" data-animation-in="slideInDown">Meet Our Engineers</h2>
-                                    <h3 className="slide-sub-title" data-animation-in="fadeIn">We believe sustainability</h3>
-                                    <p className="slider-description lead" data-animation-in="slideInRight">We will deal with your failure that
-                                        determines how you achieve success.</p>
+                                    <h2 className="slide-title" data-animation-in="slideInDown">Know more</h2>
+                                    <h3 className="slide-sub-title" data-animation-in="fadeIn">Discover Our Excellence Within</h3>
+                                    <p className="slider-description lead" data-animation-in="slideInRight">
+                                        Delivering Excellence in Crane Services for Your Best Projects. Where Quality Lifting Meets Dedicated Service.
+                                    </p>
                                     <div data-animation-in="slideInLeft">
-                                        <a href="contact.html" className="slider btn btn-primary" aria-label="contact-with-us">Get Free Quote</a>
-                                        <a href="about.html" className="slider btn btn-primary border" aria-label="learn-more-about-us">Learn
-                                            more</a>
+                                        <NavLink to='about' className="slider btn btn-primary border">About Us</NavLink>
                                     </div>
                                 </div>
                             </div>
@@ -279,7 +278,7 @@ const Home = () => {
                 <div className="container">
                     <div className="row text-center">
                         <div className="col-12">
-                            <h2 className="section-title">We Are Specialists In</h2>
+                            <h2 className="section-title">We Provide Service In</h2>
                             <h3 className="section-sub-title">What We Do</h3>
                         </div>
                     </div>
@@ -304,7 +303,7 @@ const Home = () => {
                         </div>
 
                         <div className="col-lg-4 text-center">
-                            <img loading="lazy" className="img-fluid" src="/assets/images/services/service-center.jpg" alt="service-avater-image" />
+                            <img loading="lazy" className="img-fluid" src="/assets/images/services/service.png" alt="service-avater-image" />
                         </div>
 
                         <div className="col-lg-4 mt-5 mt-lg-0 mb-4 mb-lg-0">

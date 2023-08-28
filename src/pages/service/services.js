@@ -33,7 +33,7 @@ const Services = () => {
 
     return (
         <>
-            <div id="banner-area" className="banner-area" style={{ backgroundImage: 'url(/assets/images/banner/banner1.jpg)' }}>
+            <div id="banner-area" className="banner-area" style={{ backgroundImage: 'url(/assets/images/banner/banner.jpg)' }}>
                 <div className="banner-text">
                     <div className="container">
                         <div className="row">
