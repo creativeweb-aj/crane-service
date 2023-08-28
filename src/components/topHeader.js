@@ -39,7 +39,7 @@ const TopHeader = () => {
                             <ul className="list-unstyled">
                                 <li>
                                     {socialLinks && socialLinks.map((data, index) => (
-                                        <a title={data?.social_page?.name} href={data?.link}>
+                                        <a title={data?.social_page?.name} href={data?.link} target="_blank">
                                             <span className="social-icon" dangerouslySetInnerHTML={{
                                                 __html: DOMPurify.sanitize(data?.social_page?.icon)
                                             }}></span>
