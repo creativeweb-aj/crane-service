@@ -9,18 +9,18 @@ const Footer = () => {
     const [siteInfo, setSiteInfo] = useState(null);
     const [socialLinks, setSocialLinks] = useState([]);
     const [workingDays, setWorkingDays] = useState([]);
-    const [services, setServices] = useState([]);
+    const [cranes, setCranes] = useState([]);
 
     const { request, response } = useRequest()
     const { request: socialRequest, response: socialResponse } = useRequest()
     const { request: workingDayRequest, response: workingDayResponse } = useRequest()
-    const { request: serviceRequest, response: serviceResponse } = useRequest()
+    const { request: craneRequest, response: craneResponse } = useRequest()
 
     useEffect(() => {
         request('GET', 'home/site-info')
         socialRequest('GET', 'home/social-links')
         workingDayRequest('GET', 'home/working-days')
-        serviceRequest('GET', 'home/services')
+        craneRequest('GET', 'home/cranes')
     }, [])
 
     useEffect(() => {
@@ -33,10 +33,10 @@ const Footer = () => {
         if (workingDayResponse && workingDayResponse?.status === "SUCCESS") {
             setWorkingDays(workingDayResponse?.data?.working_days)
         }
-        if(serviceResponse && serviceResponse?.status === "SUCCESS"){
-            setServices(serviceResponse?.data?.services)
+        if(craneResponse && craneResponse?.status === "SUCCESS"){
+            setCranes(craneResponse?.data?.cranes)
         }
-    }, [response, socialResponse, workingDayResponse, serviceResponse])
+    }, [response, socialResponse, workingDayResponse, craneResponse])
 
     return (
         <>
@@ -44,6 +44,7 @@ const Footer = () => {
                 <div className="footer-main">
                     <div className="container">
                         <div className="row justify-content-between">
+
                             <div className="col-lg-4 col-md-6 footer-widget footer-about">
                                 <h3 className="widget-title">About Us</h3>
                                 <img loading="lazy" width={200} className="footer-logo" src={`${BaseUrl}` + `${siteInfo?.logo}`} alt="Constra" />
@@ -65,6 +66,15 @@ const Footer = () => {
                                 </div>
                             </div>
 
+                            <div className="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
+                                <h3 className="widget-title">Cranes</h3>
+                                <ul className="list-arrow">
+                                    {cranes && cranes.map((data, index) => (
+                                        <li>{data?.name}</li>
+                                    ))}
+                                </ul>
+                            </div>
+
                             <div className="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
                                 <h3 className="widget-title">Working Hours</h3>
                                 <div className="working-hours">
@@ -75,20 +85,9 @@ const Footer = () => {
                                             <br /> {data?.day} <span className="text-right">24x7 Hour</span>
                                         </>
                                     ))}
-                                    {/* Monday - Friday: <span className="text-right">10:00 - 16:00 </span>
-                                    <br /> Saturday: <span className="text-right">12:00 - 15:00</span>
-                                    <br /> Sunday and holidays: <span className="text-right">09:00 - 12:00</span> */}
                                 </div>
                             </div>
 
-                            <div className="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
-                                <h3 className="widget-title">Services</h3>
-                                <ul className="list-arrow">
-                                    {services && services.map((data, index) => (
-                                        <li>{data?.name}</li>
-                                    ))}
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
