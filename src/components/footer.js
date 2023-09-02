@@ -78,8 +78,6 @@ const Footer = () => {
                             <div className="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
                                 <h3 className="widget-title">Working Hours</h3>
                                 <div className="working-hours">
-                                    Operating tirelessly, we're available every day of the week except for major holidays. Reach out during emergencies via our Hotline or Contact Form for prompt assistance.
-                                    <br />
                                     {workingDays && workingDays.map((data, index) => (
                                         <>
                                             <br /> {data?.day} <span className="text-right">24x7 Hour</span>

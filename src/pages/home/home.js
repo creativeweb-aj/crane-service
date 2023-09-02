@@ -69,7 +69,7 @@ const Home = () => {
     return (
         <>
             <div className="banner-carousel banner-carousel-1 mb-0">
-                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg1.0.jpg)' }}>
+                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg1.jpeg)' }}>
                     <div className="slider-content">
                         <div className="container h-100">
                             <div className="row align-items-center h-100">
@@ -86,7 +86,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg2.0.jpg)' }}>
+                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg2.jpeg)' }}>
                     <div className="slider-content text-left">
                         <div className="container h-100">
                             <div className="row align-items-center h-100">
@@ -103,7 +103,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg3.0.jpg)' }}>
+                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg3.jpeg)' }}>
                     <div className="slider-content text-right">
                         <div className="container h-100">
                             <div className="row align-items-center h-100">
@@ -177,9 +177,6 @@ const Home = () => {
 
                         <div className="col-lg-6 mt-4 mt-lg-0">
                             <h3 className="into-sub-title">Cranes</h3>
-                            <p>
-                                Cranes on rent checkout
-                            </p>
 
                             <div className="accordion accordion-group" id="our-values-accordion">
                                 {cranes && cranes.map((data, index) => (
