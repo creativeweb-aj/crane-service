@@ -69,7 +69,25 @@ const Home = () => {
     return (
         <>
             <div className="banner-carousel banner-carousel-1 mb-0">
-                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg1.jpeg)' }}>
+                
+                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg1.0.jpg)' }}>
+                    <div className="slider-content text-left">
+                        <div className="container h-100">
+                            <div className="row align-items-center h-100">
+                                <div className="col-md-12">
+                                    <h2 className="slide-title-box" data-animation-in="slideInDown">Mahalaxmi Crane Service's</h2>
+                                    <h3 className="slide-title" data-animation-in="fadeIn">Crane Rental & Service Provider</h3>
+                                    {/* <h3 className="slide-sub-title" data-animation-in="slideInLeft">Your Choice is Simple</h3> */}
+                                    <p data-animation-in="slideInRight">
+                                        <NavLink to='projects' className="slider btn btn-primary border">Our Projects</NavLink>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg1.1.jpeg)' }}>
                     <div className="slider-content">
                         <div className="container h-100">
                             <div className="row align-items-center h-100">
@@ -86,32 +104,16 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg2.jpeg)' }}>
-                    <div className="slider-content text-left">
-                        <div className="container h-100">
-                            <div className="row align-items-center h-100">
-                                <div className="col-md-12">
-                                    <h2 className="slide-title-box" data-animation-in="slideInDown">Best Service</h2>
-                                    <h3 className="slide-title" data-animation-in="fadeIn">When Service Matters</h3>
-                                    <h3 className="slide-sub-title" data-animation-in="slideInLeft">Your Choice is Simple</h3>
-                                    <p data-animation-in="slideInRight">
-                                        <NavLink to='projects' className="slider btn btn-primary border">Our Projects</NavLink>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg3.jpeg)' }}>
+                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg1.3.jpeg)' }}>
                     <div className="slider-content text-right">
                         <div className="container h-100">
                             <div className="row align-items-center h-100">
-                                <div className="col-md-12">
+                            <div className="col-md-12">
                                     <h2 className="slide-title" data-animation-in="slideInDown">Know more</h2>
-                                    <h3 className="slide-sub-title" data-animation-in="fadeIn">Discover Our Excellence Within</h3>
+                                    <h3 className="slide-sub-title" data-animation-in="fadeIn">Delivering Best Services</h3>
                                     <p className="slider-description lead" data-animation-in="slideInRight">
-                                        Delivering Excellence in Crane Services for Your Best Projects. Where Quality Lifting Meets Dedicated Service.
+                                       
+                                       Where Quality Lifting Meets, You get Dedicated Service.
                                     </p>
                                     <div data-animation-in="slideInLeft">
                                         <NavLink to='about' className="slider btn btn-primary border">About Us</NavLink>
