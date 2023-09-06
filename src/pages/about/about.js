@@ -71,31 +71,31 @@ const About = () => {
 
                             <div id="page-slider" className="page-slider small-bg">
 
-                                <div className="item" style={{ backgroundImage: 'url(/assets/images/slider-pages/slide-page1.jpg)' }}>
+                                <div className="item" style={{ backgroundImage: 'url(/assets/images/slider-pages/slide-page1.jpeg)' }}>
                                     <div className="container">
                                         <div className="box-slider-content">
                                             <div className="box-slider-text">
-                                                <h2 className="box-slide-title">Leadership</h2>
+                                                {/* <h2 className="box-slide-title">High and Heavy Lifting</h2> */}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="item" style={{ backgroundImage: 'url(/assets/images/slider-pages/slide-page2.jpg)' }}>
+                                <div className="item" style={{ backgroundImage: 'url(/assets/images/slider-pages/slide-page2.jpeg)' }}>
                                     <div className="container">
                                         <div className="box-slider-content">
                                             <div className="box-slider-text">
-                                                <h2 className="box-slide-title">Relationships</h2>
+                                                {/* <h2 className="box-slide-title">Heavy Load</h2> */}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="item" style={{ backgroundImage: 'url(/assets/images/slider-pages/slide-page3.jpg)' }}>
+                                <div className="item" style={{ backgroundImage: 'url(/assets/images/slider-pages/slide-page3.jpeg)' }}>
                                     <div className="container">
                                         <div className="box-slider-content">
                                             <div className="box-slider-text">
-                                                <h2 className="box-slide-title">Performance</h2>
+                                                {/* <h2 className="box-slide-title">Risky Work</h2> */}
                                             </div>
                                         </div>
                                     </div>

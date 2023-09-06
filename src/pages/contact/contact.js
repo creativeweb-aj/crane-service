@@ -1,22 +1,47 @@
 import React, { useEffect, useState } from "react";
 import {useExternalScript} from '../../hooks/useExternalScript';
 import useRequest from "../../hooks/useRequest";
+// import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 
 const Contact = () => {
     useExternalScript('/assets/js/script.js')
     const [siteInfo, setSiteInfo] = useState(null);
 
     const { request, response } = useRequest()
+    const { request: sendEmailReq, response: sendEmailRes } = useRequest()
+
+
+    const [inputs, setInputs] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
+
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+        setInputs({...inputs, [name]: value})
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        sendEmailReq("POST", "/home/add-message", inputs);
+    }
 
     useEffect(() => {
-        request('GET', 'home/site-info')
+        request('GET', 'home/site-info', inputs)
     }, [])
 
     useEffect(() => {
         if (response && response?.status === "SUCCESS") {
             setSiteInfo(response?.data?.site_info)
         }
-    }, [response])
+
+        if (sendEmailRes && sendEmailRes?.status === "SUCCESS") {
+            console.log(sendEmailRes)
+        }
+    }, [response, sendEmailRes])
     
     return (
         <>
@@ -95,34 +120,34 @@ const Contact = () => {
                     <div className="row">
                         <div className="col-md-12">
                             <h3 className="column-title">We love to hear</h3>
-                            <form id="contact-form" action="#" method="post" role="form">
+                            <form onSubmit={handleSubmit} id="contact-form" action="#" method="post" role="form">
                                 <div className="error-container"></div>
                                 <div className="row">
                                     <div className="col-md-4">
                                         <div className="form-group">
                                             <label>Name</label>
-                                            <input className="form-control form-control-name" name="name" id="name" placeholder="" type="text"
-                                                required/>
+                                            <input className="form-control form-control-name" type="text" name="name" value={inputs.name || ""} onChange={handleChange} required/>
+                                            
                                         </div>
                                     </div>
                                     <div className="col-md-4">
                                         <div className="form-group">
                                             <label>Email</label>
-                                            <input className="form-control form-control-email" name="email" id="email" placeholder="" type="email"
+                                            <input className="form-control form-control-email" name="email" id="email" placeholder="" type="email"  value={inputs.email || ""} onChange={handleChange}
                                                 required/>
                                         </div>
                                     </div>
                                     <div className="col-md-4">
                                         <div className="form-group">
                                             <label>Subject</label>
-                                            <input className="form-control form-control-subject" name="subject" id="subject" placeholder=""
+                                            <input className="form-control form-control-subject" name="subject" id="subject" placeholder=""  value={inputs.subject || ""} onChange={handleChange}
                                                 required/>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label>Message</label>
-                                    <textarea className="form-control form-control-message" name="message" id="message" placeholder="" rows="10"
+                                    <textarea className="form-control form-control-message" name="message" id="message" placeholder="" rows="10"  value={inputs.message || ""} onChange={handleChange}
                                         required></textarea>
                                 </div>
                                 <div className="text-right"><br/>

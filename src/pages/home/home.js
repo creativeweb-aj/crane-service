@@ -11,12 +11,13 @@ const Home = () => {
     const [siteInfo, setSiteInfo] = useState(null);
     const [about, setAbout] = useState(null);
     const [keyPoints, setKeyPoints] = useState([])
-    const [values, setValues] = useState([])
+    const [cranes, setCranes] = useState([]);
     const [projects, setProjects] = useState([]);
     const [services, setServices] = useState([]);
     const [testimonials, setTestimonials] = useState([]);
 
     const { request, response } = useRequest()
+    const { request: craneRequest, response: craneResponse } = useRequest()
     const { request: projectRequest, response: projectResponse } = useRequest()
     const { request: serviceRequest, response: serviceResponse } = useRequest()
     const { request: testimonialRequest, response: testimonialResponse } = useRequest()
@@ -24,6 +25,7 @@ const Home = () => {
 
     useEffect(() => {
         request('GET', 'home/about')
+        craneRequest('GET', 'home/cranes')
         projectRequest('GET', 'home/projects')
         serviceRequest('GET', 'home/services')
         testimonialRequest('GET', 'home/testimonials')
@@ -38,7 +40,7 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        if (keyPoints.length > 0 && values.length > 0 && projects.length > 0 && services.length > 0 && testimonials.length > 0) {
+        if (keyPoints.length > 0 && projects.length > 0 && services.length > 0 && testimonials.length > 0) {
             let script = document.createElement('script')
             script.src = "/assets/js/script.js"
             document.body.appendChild(script)
@@ -46,7 +48,9 @@ const Home = () => {
         if (response && response?.status === "SUCCESS") {
             setAbout(response?.data?.about)
             setKeyPoints(response?.data?.key_points)
-            setValues(response?.data?.our_values)
+        }
+        if (craneResponse && craneResponse?.status === "SUCCESS") {
+            setCranes(craneResponse?.data?.cranes)
         }
         if (projectResponse && projectResponse?.status === "SUCCESS") {
             setProjects(projectResponse?.data?.projects)
@@ -60,12 +64,30 @@ const Home = () => {
         if(siteInfoResponse && siteInfoResponse.status === "SUCCESS"){
             setSiteInfo(siteInfoResponse?.data?.site_info)
         }
-    }, [response, projectResponse, serviceResponse, testimonialResponse, siteInfoResponse, keyPoints, values, projects, services, testimonials])
+    }, [response, craneResponse, projectResponse, serviceResponse, testimonialResponse, siteInfoResponse, keyPoints, projects, services, testimonials])
 
     return (
         <>
             <div className="banner-carousel banner-carousel-1 mb-0">
+                
                 <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg1.0.jpg)' }}>
+                    <div className="slider-content text-left">
+                        <div className="container h-100">
+                            <div className="row align-items-center h-100">
+                                <div className="col-md-12">
+                                    <h2 className="slide-title-box" data-animation-in="slideInDown">Mahalaxmi Crane Service's</h2>
+                                    <h3 className="slide-title" data-animation-in="fadeIn">Crane Rental & Service Provider</h3>
+                                    {/* <h3 className="slide-sub-title" data-animation-in="slideInLeft">Your Choice is Simple</h3> */}
+                                    <p data-animation-in="slideInRight">
+                                        <NavLink to='projects' className="slider btn btn-primary border">Our Projects</NavLink>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg1.1.jpeg)' }}>
                     <div className="slider-content">
                         <div className="container h-100">
                             <div className="row align-items-center h-100">
@@ -82,32 +104,16 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg2.0.jpg)' }}>
-                    <div className="slider-content text-left">
-                        <div className="container h-100">
-                            <div className="row align-items-center h-100">
-                                <div className="col-md-12">
-                                    <h2 className="slide-title-box" data-animation-in="slideInDown">Best Service</h2>
-                                    <h3 className="slide-title" data-animation-in="fadeIn">When Service Matters</h3>
-                                    <h3 className="slide-sub-title" data-animation-in="slideInLeft">Your Choice is Simple</h3>
-                                    <p data-animation-in="slideInRight">
-                                        <NavLink to='projects' className="slider btn btn-primary border">Our Projects</NavLink>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg3.0.jpg)' }}>
+                <div className="banner-carousel-item" style={{ backgroundImage: 'url(/assets/images/slider-main/bg1.3.jpeg)' }}>
                     <div className="slider-content text-right">
                         <div className="container h-100">
                             <div className="row align-items-center h-100">
-                                <div className="col-md-12">
+                            <div className="col-md-12">
                                     <h2 className="slide-title" data-animation-in="slideInDown">Know more</h2>
-                                    <h3 className="slide-sub-title" data-animation-in="fadeIn">Discover Our Excellence Within</h3>
+                                    <h3 className="slide-sub-title" data-animation-in="fadeIn">Delivering Best Services</h3>
                                     <p className="slider-description lead" data-animation-in="slideInRight">
-                                        Delivering Excellence in Crane Services for Your Best Projects. Where Quality Lifting Meets Dedicated Service.
+                                       
+                                       Where Quality Lifting Meets, You get Dedicated Service.
                                     </p>
                                     <div data-animation-in="slideInLeft">
                                         <NavLink to='about' className="slider btn btn-primary border">About Us</NavLink>
@@ -128,11 +134,11 @@ const Home = () => {
                                     <h3 className="action-title">{siteInfo?.tagline}</h3>
                                 </div>
                             </div>
-                            {/* <div className="col-md-4 text-center text-md-right mt-3 mt-md-0">
+                            <div className="col-md-4 text-center text-md-right mt-3 mt-md-0">
                                 <div className="call-to-action-btn">
-                                    <a className="btn btn-dark" href="#">Request Quote</a>
+                                    <a href={`tel:`+`${siteInfo?.mobile}`} className="btn btn-dark text-white">Call Now</a>
                                 </div>
-                            </div> */}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -172,13 +178,10 @@ const Home = () => {
                         </div>
 
                         <div className="col-lg-6 mt-4 mt-lg-0">
-                            <h3 className="into-sub-title">Our Values</h3>
-                            <p>
-                                Delivering exceptional crane services by upholding our values of integrity, safety, innovation, and client satisfaction at every step.
-                            </p>
+                            <h3 className="into-sub-title">Cranes</h3>
 
                             <div className="accordion accordion-group" id="our-values-accordion">
-                                {values && values.map((data, index) => (
+                                {cranes && cranes.map((data, index) => (
                                     <>
                                         {index === 0 ? (
                                             <div className="card">
@@ -186,7 +189,7 @@ const Home = () => {
                                                     <h2 className="mb-0">
                                                         <button className="btn btn-block text-left" type="button" data-toggle="collapse"
                                                             data-target={`#collapse-` + `${data?.id}`} aria-expanded="true" aria-controls={`collapse-` + `${data?.id}`}>
-                                                            {data?.title}
+                                                            {data?.name}
                                                         </button>
                                                     </h2>
                                                 </div>
@@ -204,7 +207,7 @@ const Home = () => {
                                                     <h2 className="mb-0">
                                                         <button className="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
                                                             data-target={`#collapse-` + `${data?.id}`} aria-expanded="false" aria-controls={`collapse-` + `${data?.id}`}>
-                                                            {data?.title}
+                                                            {data?.name}
                                                         </button>
                                                     </h2>
                                                 </div>
