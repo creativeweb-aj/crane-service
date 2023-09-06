@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useExternalScript} from '../../hooks/useExternalScript';
 import useRequest from "../../hooks/useRequest";
-// import ReactDOM from "react-dom/client";
-import ReactDOM from "react-dom";
+import { Toast } from "../../utils/ToastNotification";
 
 const Contact = () => {
     useExternalScript('/assets/js/script.js')
@@ -26,7 +25,7 @@ const Contact = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        sendEmailReq("POST", "/home/add-message", inputs);
+        sendEmailReq("POST", "home/add-message", inputs);
     }
 
     useEffect(() => {
@@ -40,6 +39,13 @@ const Contact = () => {
 
         if (sendEmailRes && sendEmailRes?.status === "SUCCESS") {
             console.log(sendEmailRes)
+            setInputs({
+                name: "",
+                email: "",
+                subject: "",
+                message: ""
+            })
+            Toast(true, sendEmailRes?.message)
         }
     }, [response, sendEmailRes])
     
