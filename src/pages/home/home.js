@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useExternalScript } from '../../hooks/useExternalScript';
 import DOMPurify from "dompurify";
 import useRequest from "../../hooks/useRequest";
 import { NavLink } from "react-router-dom";

@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import {Logout} from '../utils/Logout';
+// import {Logout} from '../utils/Logout';
 import { API } from "../constant/api";
 
 const BACKEND_URL = API.PORT;
@@ -64,7 +64,7 @@ const useRequest = () => {
         fetchedData();
         if (err.response) {
           if (err.response.status === 401) {
-            Logout()
+            // Logout()
           } else if (err.response.status === 404) {
             navigate("/404");
           } else {
